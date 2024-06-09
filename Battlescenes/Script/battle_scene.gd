@@ -90,7 +90,7 @@ func _on_list_pressed():
 	set_health($enemy_container/ProgressBar, current_enemy_health, enemy.health)
 	
 	hit.play()
-	die.play()
+	#die.play()
 	# Play the health hide animation and wait for it to finish
 	$AnimationPlayer.play("enemy_damage")
 	yield($AnimationPlayer, "animation_finished")    
@@ -99,8 +99,10 @@ func _on_list_pressed():
 	
 	# Hide the question and answer panel
 	q_and_a_hide()
-	
-	Global.bat1_position_set = false
+	#print("after battlescene")
+	Global.set_player_position_engaged(Global.get_player_current_position())
+	#print(Global.player_position_engaged)	
+	Global.bat1_state = true
 	
 	var result = get_tree().change_scene("res://levels/World.tscn")
 	if result != OK:

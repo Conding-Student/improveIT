@@ -14,10 +14,11 @@ func _ready():
 	option_menu.hide()
 	
 func _on_restart_pressed():
+	var pos = Vector2(0,0) 
 	get_tree().paused = false
-	Global.enemy_name.clear()
 	PlayerStats.health = 5
-	Global.set_player_spawnpoint(initial_spawn_1st)
+	Global.restarting()
+	print("onging")
 	var result = get_tree().change_scene(Global.map)
 	if result != OK:
 		print("failed to load "+result)
@@ -41,4 +42,5 @@ func _on_option_pressed():
 
 func _on_save_pressed():
 	save.show()
+	Global.save_triggered = false
 

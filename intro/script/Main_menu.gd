@@ -23,8 +23,11 @@ func _ready():
 
 func _on_continue_pressed() ->void:
 	save_files.show()
+	Global.save_triggered = true
+	
 
 func _on_start_pressed() ->void:
+	Global.start_level_trigger = true
 	SceneTransition.change_scene("res://Scenes/Intro-scene.tscn")
 
 func _on_exit_pressed() ->void:
