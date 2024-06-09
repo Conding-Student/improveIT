@@ -100,7 +100,7 @@ func _on_list_pressed():
 	# Hide the question and answer panel
 	q_and_a_hide()
 	
-	EnemyState.enemy_states = true
+	Global.bat1_position_set = false
 	
 	var result = get_tree().change_scene("res://levels/World.tscn")
 	if result != OK:

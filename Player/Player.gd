@@ -34,7 +34,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	
+	Global.set_player_current_position(global_position)
 	match state:
 		MOVE:
 			move_state(delta)

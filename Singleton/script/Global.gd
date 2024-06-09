@@ -1,11 +1,30 @@
 extends Node
 
 var player_spawnpoint = Vector2(0, 0)
+var player_current_position = Vector2(0,0)
 var enemy_position = []
 var map = ""
 var enemy_name = []
-var bat1_position_set = true
+var current_level = ""
+var bat1_position_set = Vector2(0,0)
 var bat2_position_set = true
+
+func set_bat1_current_position(new_position: Vector2) -> void:
+	bat1_position_set = new_position
+
+func get_bat1_current_position():
+	return bat1_position_set
+func get_player_current_position() -> Vector2:
+	return player_current_position
+
+func set_player_current_position(new_position: Vector2) -> void:
+	player_current_position = new_position
+
+func get_current_level():
+	return current_level
+
+func set_current_level(new_level):
+	current_level = new_level
 
 func set_map(new_map):
 	map = new_map

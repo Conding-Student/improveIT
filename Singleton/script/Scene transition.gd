@@ -8,5 +8,3 @@ func change_scene(target: String) -> void:
 	
 	$AnimationPlayer.play_backwards("dissolve")
 	$"/root/SceneTransition".visible = false
-	
-

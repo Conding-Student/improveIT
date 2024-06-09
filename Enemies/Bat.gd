@@ -30,6 +30,8 @@ func _ready():
 	state = pick_random_state([IDLE, WANDER])
 
 func _physics_process(delta):
+	
+	
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
 	

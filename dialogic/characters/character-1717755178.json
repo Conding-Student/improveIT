@@ -1,0 +1,21 @@
+{
+	"color": "#ffba06fb",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1717755178.json",
+	"mirror_portraits": true,
+	"name": "Master",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": -20,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://Dialogue/Picture/trial-mentor.png"
+		}
+	],
+	"scale": 20,
+	"theme": "theme-1717755012.cfg"
+}
