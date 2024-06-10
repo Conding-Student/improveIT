@@ -18,4 +18,11 @@ func _on_exit_pressed() ->void:
 
 
 func _on_Restart_pressed():
-	SceneTransition.change_scene("res://levels/World.tscn")
+	get_tree().paused = false
+	PlayerStats.health = 5
+	Global.restarting()
+	#print("onging")
+	var result = get_tree().change_scene(Global.map)
+	if result != OK:
+		print("failed to load "+result)
+	

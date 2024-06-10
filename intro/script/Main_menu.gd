@@ -12,8 +12,9 @@ onready var badges = $CanvasLayer/badges/Panel4
 onready var spell_book = $CanvasLayer/Spell_Book/Panel
 onready var save_files = $save_files/Panel
 
-
 func _ready():
+	
+	
 	quit.hide()
 	settings.hide()
 	start_button.connect("pressed", self, "_on_start_pressed")

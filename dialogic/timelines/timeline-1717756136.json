@@ -1,8 +1,8 @@
 {
 	"events": [
 		{
-			"animation": "1-fade_in.gd",
-			"animation_length": 0.5,
+			"animation": "2-fade_in_up.gd",
+			"animation_length": 1,
 			"animation_wait": true,
 			"change_mirror_portrait": false,
 			"change_z_index": false,
@@ -20,6 +20,14 @@
 			},
 			"type": 0,
 			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://Dialogue/Voice/kyle-you-must-wake-up.wav",
+			"volume": 0
 		},
 		{
 			"character": "character-1717755178.json",
@@ -52,10 +60,18 @@
 			"z_index": 0
 		},
 		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://Dialogue/Voice/yeah-i-know.wav",
+			"volume": 0
+		},
+		{
 			"character": "character-1717757383.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "oh yeah, yeah I know."
+			"text": "Yeah I know."
 		},
 		{
 			"event_id": "dialogic_024",
@@ -81,6 +97,14 @@
 			},
 			"type": 2,
 			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://Dialogue/Voice/come-with-me.wav",
+			"volume": 0
 		},
 		{
 			"character": "character-1717755178.json",

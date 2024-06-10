@@ -103,7 +103,7 @@ func _on_list_pressed():
 	Global.set_player_position_engaged(Global.get_player_current_position())
 	#print(Global.player_position_engaged)	
 	Global.bat1_state = true
-	
+	#print(Global.bat1_state)
 	var result = get_tree().change_scene("res://levels/World.tscn")
 	if result != OK:
 		print("failed to load "+result)

@@ -10,16 +10,33 @@ var enemy_position = []
 var map = ""
 var enemy_name = []
 var current_level = ""
+var save_button_click = false
 var bat1_position_set = Vector2(0,0)
+var bat1_initial_position = Vector2(0,0)
 var bat1_state = false
+var bat1_position_engaged = Vector2(0,0)
+var bat1_defeated = false
+
+func get_bat1_initial_position() -> Vector2:
+	return bat1_initial_position
+
+func set_bat1_initial_position(new_position: Vector2) -> void:
+	bat1_initial_position = new_position
+
+func set_bat1_position_engaged(new_position: Vector2) -> void:
+	bat1_position_engaged = new_position
 
 func set_player_position_engaged(new_position: Vector2) -> void:
 	player_position_engaged = new_position
 	
 func restarting():
 	Global.player_current_position = Global.player_initial_position
+	Global.player_initial_position = Vector2(0,0)
+	Global.player_position_retain = false
+	Global.player_position_engaged = Vector2(0,0)
+	
 	current_level = ""
-	bat1_position_set = Vector2(0,0)
+	Global.bat1_position_set = Global.bat1_initial_position
 	bat1_state = false
 	enemy_position = []
 	enemy_name = []

@@ -14,11 +14,10 @@ func _ready():
 	option_menu.hide()
 	
 func _on_restart_pressed():
-	var pos = Vector2(0,0) 
 	get_tree().paused = false
 	PlayerStats.health = 5
 	Global.restarting()
-	print("onging")
+	#print("onging")
 	var result = get_tree().change_scene(Global.map)
 	if result != OK:
 		print("failed to load "+result)

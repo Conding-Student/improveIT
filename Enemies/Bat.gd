@@ -31,7 +31,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	
+	Global.set_bat1_current_position(global_position)
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
 	
