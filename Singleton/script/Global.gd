@@ -5,26 +5,20 @@ var player_position_engaged = Vector2(0,0)
 var player_position_retain = false
 var player_initial_position = Vector2(0,0)
 var player_current_position = Vector2(0,0)
+
 var start_level_trigger = false
-var enemy_position = []
+
+# ENEMY
+var enemy_current_position = {"enemy1": Vector2(0, 0)}
+var enemy_initial_position = {"enemy1": Vector2(0, 0)}
+var enemy_engaged_position = {"enemy1": Vector2(0, 0)}
+var enemy_state = {"enemy1": false}
+var enemy_defeated = {"enemy1": false}
+
 var map = ""
 var enemy_name = []
 var current_level = ""
 var save_button_click = false
-var bat1_position_set = Vector2(0,0)
-var bat1_initial_position = Vector2(0,0)
-var bat1_state = false
-var bat1_position_engaged = Vector2(0,0)
-var bat1_defeated = false
-
-func get_bat1_initial_position() -> Vector2:
-	return bat1_initial_position
-
-func set_bat1_initial_position(new_position: Vector2) -> void:
-	bat1_initial_position = new_position
-
-func set_bat1_position_engaged(new_position: Vector2) -> void:
-	bat1_position_engaged = new_position
 
 func set_player_position_engaged(new_position: Vector2) -> void:
 	player_position_engaged = new_position
@@ -37,8 +31,8 @@ func restarting():
 	
 	current_level = ""
 	Global.bat1_position_set = Global.bat1_initial_position
-	bat1_state = false
-	enemy_position = []
+	#bat1_state = false lagyan mo ito nang engaged position
+	enemy_current_position = []
 	enemy_name = []
 	
 func get_player_initial_position() -> Vector2:
@@ -46,12 +40,6 @@ func get_player_initial_position() -> Vector2:
 
 func set_player_initial_position(new_position: Vector2) -> void:
 	player_initial_position = new_position
-	
-func set_bat1_current_position(new_position: Vector2) -> void:
-	bat1_position_set = new_position
-
-func get_bat1_current_position():
-	return bat1_position_set
 	
 func get_player_current_position() -> Vector2:
 	return player_current_position
@@ -71,11 +59,42 @@ func set_map(new_map):
 func get_map():
 	return map
 
-func get_enemy_position() -> Array:
-	return enemy_position
+# ENEMIES
+func get_enemy_defeated(key) -> bool:
+	return enemy_defeated[key]
 
-func set_enemy_position(position: Vector2):
-	enemy_position.append(position)
+func set_enemy_defeated(key,position: bool):
+	enemy_defeated.erase(key)
+	enemy_defeated[key] = position
+	
+func get_enemy_state(key) -> bool:
+	return enemy_state[key]
+
+func set_enemy_state(key,position: bool):
+	enemy_state.erase(key)
+	enemy_state[key] = position
+
+
+func get_enemy_engaged_position(key) -> Vector2:
+	return enemy_engaged_position[key]
+
+func set_enemy_engaged_position(key,position: Vector2):
+	enemy_engaged_position.erase(key)
+	enemy_engaged_position[key] = position
+
+func get_enemy_current_position(key) -> Vector2:
+	return enemy_current_position[key]
+
+func set_enemy_current_position(key,position: Vector2):
+	enemy_current_position.erase(key)
+	enemy_current_position[key] = position
+
+func get_enemy_initial_position(key) -> Vector2:
+	return enemy_initial_position[key]
+
+func set_enemy_initial_position(key,position: Vector2):
+	enemy_initial_position.erase(key)
+	enemy_initial_position[key] = position
 
 func get_enemy_name() -> Array:
 	return enemy_name

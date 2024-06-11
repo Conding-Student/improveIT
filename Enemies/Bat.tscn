@@ -106,7 +106,7 @@ script = ExtResource( 4 )
 material = SubResource( 14 )
 frames = SubResource( 6 )
 animation = "Fly"
-frame = 1
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -156,6 +156,7 @@ anims/Start = SubResource( 12 )
 anims/Stop = SubResource( 13 )
 
 [node name="battle_mode" parent="." instance=ExtResource( 11 )]
+visible = false
 collision_layer = 16
 collision_mask = 2
 script = ExtResource( 12 )
@@ -168,7 +169,6 @@ shape = SubResource( 15 )
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invincibility_started" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_started"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
-[connection signal="body_entered" from="battle_mode" to="battle_mode" method="_on_battle_mode_body_entered"]
 
 [editable path="Hurtbox"]
 [editable path="PlayerDetectionZone"]
