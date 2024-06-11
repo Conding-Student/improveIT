@@ -11,49 +11,60 @@ func _ready():
 	panel.hide()
 	#print(Global.get_current_level())
 	saving_file.load_game_button()
-	
-	if Global.get_current_level() != "" and Global.save_button_click == true:
+	#saving_file.load_game()
+	#print(Global.save_button_click2)
+	var printed_something = false
+
+	if Global.get_map() != "":
+		auto.text = "Autoload: " + Global.get_current_level()
+		#print("one")
+		printed_something = true
+
+	if Global.save_button_click == true:
 		file1.text = Global.get_current_level()
 		#print("two")
-	if Global.get_current_level() !="":
-		auto.text = ("Autoload: "+Global.get_current_level())	
-		#print("one")
-	else:
-		auto.text = "Autoload File"
-		#file1.text = "File1"
-		#print("three")
+		printed_something = true
+	if not printed_something:
+		auto.text = "Auto Save File"
+		file1.text = "File 1"
+		#print("four")
 	#saving_file.load_game_button()
 		
 	
 	
 	# Connect signals from buttons to respective functions
 	auto.connect("pressed", self, "auto_save")
-	file1.connect("pressed", self, "file1")
-	#file2.connect("pressed", self, "auto_save")
+	file1.connect("pressed", self, "file1_pressed")
+	#file2.connect("pressed", self, "file2_pressed")
 
 func auto_save() -> void:
-	if Global.save_button_click == true:
+	if Global.save_button_click == true and Global.get_player_current_position() != Vector2(0,0):
 		SceneTransition.change_scene(Global.get_map())
 		Global.save_triggered = false
+		#print("one")
 	else:
-		auto.text = "Autoload File"
+		#print("two")
+		auto.text = "Auto Save File"
 		
 
-func file1():
-	if Global.save_triggered == false and Global.get_current_level():
+func file1_pressed():
+	if Global.save_triggered == false:
 		file1.text = Global.get_current_level()
 		Global.save_button_click = true
 		saving_file.save_game()	
-		print(Global.save_button_click)
+		#print(Global.save_button_click)
 		Global.save_triggered = true
 	else:
-		saving_file.load_game_button()
+		#saving_file.load_game_button()
 		if Global.save_button_click == true:
 			saving_file.load_game()
 			SceneTransition.change_scene(Global.get_map())
 			Global.save_triggered = false	
+			#print("hello1")
 		else:
 			file1.text = "File 1"
+			#print("hello2")
+
 
 func _on_close_pressed():
 	panel.hide()

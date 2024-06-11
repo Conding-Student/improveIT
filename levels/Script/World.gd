@@ -39,13 +39,13 @@ func set_player_position():
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.player_position_retain == true:
 		player.position = Global.player_position_engaged
 		Global.player_position_retain = false
-		print("two")
+		#print("two")
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.bat1_defeated == true:
 		player.global_position = Global.get_player_current_position()
-		print("3rd")
+		#print("3rd")
 	else:
-		player.global_position = staring_player_position
-		print("4th")
+		player.global_position = Global.get_player_current_position()
+		#print("4th")
 		#print(Global.get_player_initial_position())
 		#print(Global.get_player_current_position())
 		#print(Global.start_level_trigger)

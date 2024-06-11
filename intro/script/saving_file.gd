@@ -102,5 +102,8 @@ func load_game_button() -> void:
 
 		# Fetch and set the save_button_click value
 		Global.save_button_click = loaded_data["save_button_click"]
+		Global.set_current_level(loaded_data["current_level"]) 
 	else:
 		print("Failed to open file for reading")
+
+
