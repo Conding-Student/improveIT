@@ -33,19 +33,19 @@ func _ready():
 func set_player_position():
 	if Global.get_player_initial_position() == Vector2(0,0):
 		Global.set_player_current_position(staring_player_position)
-		#print("one")
+		print("one")
 		#print(Global.get_player_initial_position())
 		#print(Global.get_player_current_position())
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.player_position_retain == true:
 		player.position = Global.player_position_engaged
 		Global.player_position_retain = false
-		#print("two")
+		print("two")
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.bat1_defeated == true:
 		player.global_position = Global.get_player_current_position()
-		#print("3rd")
+		print("3rd")
 	else:
 		player.global_position = Global.get_player_current_position()
-		#print("4th")
+		print("4th")
 		#print(Global.get_player_initial_position())
 		#print(Global.get_player_current_position())
 		#print(Global.start_level_trigger)
@@ -54,7 +54,7 @@ func set_bat_positions():
 	
 	# Only set positions if they haven't been set before
 	if Global.get_bat1_current_position() == Vector2(0,0):		
-		Global.set_player_current_position(Global.get_bat1_initial_position())		
+		Global.set_bat1_current_position(Global.get_bat1_initial_position())		
 		#print("one")				
 	elif Global.get_bat1_current_position() != Vector2(0,0) and Global.bat1_state == true:
 		bat1.position = Global.bat1_position_engaged

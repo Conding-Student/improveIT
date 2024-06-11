@@ -15,7 +15,7 @@ func _ready():
 	
 func _on_restart_pressed():
 	get_tree().paused = false
-	PlayerStats.health = 5
+	PlayerStats.health
 	Global.restarting()
 	#print("onging")
 	var result = get_tree().change_scene(Global.map)

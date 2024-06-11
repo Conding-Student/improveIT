@@ -2,6 +2,7 @@ extends Node
 
 func save_game():
 	var save_data = {
+		"players_health": PlayerStats.health,
 		"enemy_position": Global.get_enemy_position(),
 		"enemy_name": Global.get_enemy_name(),
 		"save_button_click": Global.save_button_click,
@@ -61,6 +62,8 @@ func load_game() -> void:
 
 		# player retain position
 		Global.player_position_retain = loaded_data["player_position_retain"]
+		PlayerStats.health = loaded_data["players_health"]
+		
 		
 		#bat1 current position
 		var position_string = loaded_data["bat1_current_position"]
