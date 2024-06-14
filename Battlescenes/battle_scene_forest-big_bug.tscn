@@ -5,9 +5,9 @@
 [ext_resource path="res://Fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Battlescenes/Script/battle_scene.gd" type="Script" id=7]
+[ext_resource path="res://Battlescenes/Script/battle_scene_forest-big_bug.gd" type="Script" id=6]
+[ext_resource path="res://Battlescenes/tres/big_bug.tres" type="Resource" id=7]
 [ext_resource path="res://Stats.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Battlescenes/tres/bat.tres" type="Resource" id=9]
 [ext_resource path="res://Battlescenes/sounds/battlescene_music.wav" type="AudioStream" id=10]
 [ext_resource path="res://Music and Sounds/Hurt.wav" type="AudioStream" id=11]
 [ext_resource path="res://Music and Sounds/EnemyDie.wav" type="AudioStream" id=12]
@@ -163,8 +163,8 @@ tracks/0/keys = {
 }
 
 [node name="battle_scene" type="Control"]
-script = ExtResource( 7 )
-enemy = ExtResource( 9 )
+script = ExtResource( 6 )
+enemy = ExtResource( 7 )
 
 [node name="arena" type="TextureRect" parent="."]
 anchor_right = 1.0

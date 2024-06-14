@@ -100,7 +100,7 @@ func _on_list_pressed():
 	# Hide the question and answer panel
 	q_and_a_hide()
 	Global.set_player_position_engaged(Global.get_player_current_position())
-	Global.set_enemy_state("enemy1", true)
+	Global.set_enemy_state("enemy3", true)
 	var result = get_tree().change_scene("res://levels/World.tscn")
 	if result != OK:
 		print("failed to load "+result)

@@ -58,6 +58,7 @@ func file1_pressed():
 		#saving_file.load_game_button()
 		if Global.save_button_click == true:
 			saving_file.load_game()
+			
 			SceneTransition.change_scene(Global.get_map())
 			Global.save_triggered = false	
 			#print("hello1")

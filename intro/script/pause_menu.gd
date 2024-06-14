@@ -6,6 +6,7 @@ onready var book = $Spell_Book/Panel
 onready var option = $settings/Panel
 onready var save = $save_files/Panel
 onready var confirmation = $back_to_menu/Panel
+onready var restart_state = $save_files/saving_file
 
 var initial_spawn_1st = Vector2(0,0) 
 
@@ -17,6 +18,7 @@ func _on_restart_pressed():
 	get_tree().paused = false
 	PlayerStats.health
 	Global.restarting()
+	
 	#print("onging")
 	var result = get_tree().change_scene(Global.map)
 	if result != OK:

@@ -49,6 +49,7 @@ func save_game():
 	else:
 		print("Failed to open file for writing")
 
+
 func load_game() -> void:
 	var file = File.new()
 	var error = file.open("user://file.txt", File.READ)
@@ -61,17 +62,17 @@ func load_game() -> void:
 		Global.set_player_current_position(Vector2(loaded_data["player_current_position"][0], loaded_data["player_current_position"][1]))
 		Global.set_player_initial_position(Vector2(loaded_data["player_initial_position"][0], loaded_data["player_initial_position"][1]))
 		Global.set_player_position_engaged(Vector2(loaded_data["player_position_engaged"][0], loaded_data["player_position_engaged"][1]))
-		Global.player_position_retain = (loaded_data["player_position_retain"])
+		Global.player_position_retain = loaded_data["player_position_retain"]
 		
 		# enemy positions
 		for enemy in loaded_data["enemy_current_position"]:
-			Global.enemy_current_position[enemy] = Vector2(loaded_data["enemy_current_position"][enemy][0], loaded_data["enemy_current_position"][enemy][1])
+			Global.set_enemy_current_position(enemy, Vector2(loaded_data["enemy_current_position"][enemy][0], loaded_data["enemy_current_position"][enemy][1]))
 		
 		for enemy in loaded_data["enemy_initial_position"]:
-			Global.enemy_initial_position[enemy] = Vector2(loaded_data["enemy_initial_position"][enemy][0], loaded_data["enemy_initial_position"][enemy][1])
+			Global.set_enemy_initial_position(enemy, Vector2(loaded_data["enemy_initial_position"][enemy][0], loaded_data["enemy_initial_position"][enemy][1]))
 		
 		for enemy in loaded_data["enemy_engaged_position"]:
-			Global.enemy_engaged_position[enemy] = Vector2(loaded_data["enemy_engaged_position"][enemy][0], loaded_data["enemy_engaged_position"][enemy][1])
+			Global.set_enemy_engaged_position(enemy, Vector2(loaded_data["enemy_engaged_position"][enemy][0], loaded_data["enemy_engaged_position"][enemy][1]))
 		
 		# enemy state and defeated status
 		Global.enemy_state = loaded_data["enemy_state"]
@@ -84,6 +85,7 @@ func load_game() -> void:
 		PlayerStats.health = loaded_data["players_health"]
 	else:
 		print("Failed to open file for reading")
+
 
 func load_game_button() -> void:
 	var file = File.new()
@@ -98,5 +100,3 @@ func load_game_button() -> void:
 		Global.set_current_level(loaded_data["current_level"]) 
 	else:
 		print("Failed to open file for reading")
-
-
