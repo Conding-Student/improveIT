@@ -11,12 +11,15 @@ onready var bat1 = $YSort/enemies/Bat
 onready var demon1 = $YSort/enemies/Small_bugs
 onready var big_bug = $YSort/enemies/bug
 
+#NPC
+onready var dialogue_button = $YSort/NPC/NPC/interaction_button2
+onready var player_controls = $YSort/Player/Controller
+
 var current_map = "res://levels/World.tscn"
-var staring_player_position = Vector2(-170,-69)
+var staring_player_position = Vector2(-121,-47)
 #var starting_bat1_position = Vector2(-150,255)
 
 func _ready():
-	
 	set_overall_initial_position()
 	
 	set_enemy_position(demon1,"enemy2")
@@ -39,14 +42,22 @@ func set_overall_initial_position():
 func set_player_position():
 	if Global.get_player_initial_position() == Vector2(0,0):
 		Global.set_player_current_position(staring_player_position)
-
+		#print("one")
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.player_position_retain == true:
-		player.position = Global.player_position_engaged
-		Global.player_position_retain = false
 		
+		if Global.door_activated == true:
+			player.global_position = Vector2(-120,-56)
+			Global.player_position_retain = false
+			Global.door_activated = false
+			#print("two")
+		else:
+			player.global_position = Global.get_player_position_engaged()
+			Global.player_position_retain = false
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.get_enemy_defeated("enemy1") == true:
+		#print("three")
 		player.global_position = Global.get_player_current_position()		
 	else:
+		#print("four")
 		player.global_position = Global.get_player_current_position()		
 
 func set_enemy_position(name,enemy_number):
@@ -108,3 +119,30 @@ func demon1_area_engagement(body_rid, body, body_shape_index, local_shape_index)
 func Big_bug_area_engagement(body_rid, body, body_shape_index, local_shape_index):
 	Global.set_player_current_position(body.position) 
 	enemy_engagement_plus_scene("enemy3","res://Battlescenes/battle_scene_forest-big_bug.tscn")
+
+
+func npc_interaction_area(body_rid, body, body_shape_index, local_shape_index):
+	dialogue_button.visible = true
+
+func npc_interaction_area_exited(body_rid, body, body_shape_index, local_shape_index):
+	dialogue_button.visible = false
+	Global.dialogue1 = false
+
+func after_dialog(timelinename):
+	player_controls.visible = true
+	dialogue_button.visible = true
+
+func _on_interaction_button2_pressed():
+	player_controls.visible = false
+	dialogue_button.visible = false
+	Global.dialogue1 == true
+	var new_dialog = Dialogic.start('trial')
+	add_child(new_dialog)
+	new_dialog.connect("timeline_end", self, "after_dialog")
+
+
+func house1_entered(body_rid, body, body_shape_index, local_shape_index):
+	SceneTransition.change_scene("res://World/room/house_inside.tscn")
+
+func entering_doors_marking(body_rid, body, body_shape_index, local_shape_index):
+	Global.set_player_position_engaged(body.position)

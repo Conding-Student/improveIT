@@ -8,6 +8,6 @@ func _ready():
 	new_dialog.connect("timeline_end", self, "after_dialog")
 
 func after_dialog(timelinename):
-	SceneTransition.change_scene("res://levels/World.tscn")
+	SceneTransition.change_scene("res://World/room/house_inside.tscn")
 
 

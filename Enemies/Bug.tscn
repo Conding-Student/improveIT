@@ -15,7 +15,7 @@ radius = 4.0
 radius = 15.0333
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 68.0074
+radius = 92.0054
 
 [sub_resource type="Animation" id=7]
 resource_name = "attack"
@@ -81,7 +81,6 @@ position = Vector2( -2, -13 )
 shape = SubResource( 5 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 5 )]
-visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource( 6 )

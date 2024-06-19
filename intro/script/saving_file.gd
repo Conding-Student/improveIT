@@ -6,10 +6,12 @@ func save_game():
 		"save_button_click": Global.save_button_click,
 		"map": Global.get_map(),
 		"current_level": Global.get_current_level(),
+		
 		"player_current_position": Global.get_player_current_position(),
 		"player_initial_position": Global.player_initial_position,
 		"player_position_engaged": Global.player_position_engaged,
 		"player_position_retain": Global.player_position_retain,
+		"player_after_door_position":Global.player_after_door_position,
 		# ENEMY
 		"enemy_current_position": Global.enemy_current_position,
 		"enemy_initial_position": Global.enemy_initial_position,
@@ -22,6 +24,7 @@ func save_game():
 	save_data["player_current_position"] = [save_data["player_current_position"].x, save_data["player_current_position"].y]
 	save_data["player_initial_position"] = [save_data["player_initial_position"].x, save_data["player_initial_position"].y]
 	save_data["player_position_engaged"] = [save_data["player_position_engaged"].x, save_data["player_position_engaged"].y]
+	save_data["player_after_door_position"] = [save_data["player_after_door_position"].x, save_data["player_after_door_position"].y]
 	
 	# Convert enemy positions to arrays
 	var enemy_current_position = {}
@@ -62,6 +65,7 @@ func load_game() -> void:
 		Global.set_player_current_position(Vector2(loaded_data["player_current_position"][0], loaded_data["player_current_position"][1]))
 		Global.set_player_initial_position(Vector2(loaded_data["player_initial_position"][0], loaded_data["player_initial_position"][1]))
 		Global.set_player_position_engaged(Vector2(loaded_data["player_position_engaged"][0], loaded_data["player_position_engaged"][1]))
+		Global.set_player_after_door_position(Vector2(loaded_data["player_after_door_position"][0], loaded_data["player_after_door_position"][1]))
 		Global.player_position_retain = loaded_data["player_position_retain"]
 		
 		# enemy positions

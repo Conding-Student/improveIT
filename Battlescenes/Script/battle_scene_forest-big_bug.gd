@@ -82,6 +82,7 @@ func display_text(text):
 # Handle the action when the list button is pressed
 # Example script where you handle the scene change
 func _on_list_pressed():
+	$action_panel.hide()
 	display_text("You successfully cast a spell")
 	yield(self, "textbox_closed")
 	

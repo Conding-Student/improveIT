@@ -6,8 +6,13 @@ var player_position_engaged = Vector2(0, 0)
 var player_position_retain = false
 var player_initial_position = Vector2(0, 0)
 var player_current_position = Vector2(0, 0)
+var player_after_door_position = Vector2(0, 0)
 
 var start_level_trigger = false
+var door_activated = false
+
+#NPC
+var dialogue1 = false
 
 # ENEMY
 var enemy_current_position = {"enemy1": Vector2(0, 0),"enemy2": Vector2(0, 0),"enemy3": Vector2(0, 0)}
@@ -43,9 +48,18 @@ func restarting():
 	save_button_click = false
 
 
+func set_player_after_door_position(new_position: Vector2) -> void:
+	player_after_door_position = new_position
+	
+func get_player_after_door_position() -> Vector2:
+	return player_after_door_position
+
 func set_player_position_engaged(new_position: Vector2) -> void:
 	player_position_engaged = new_position
 	
+func get_player_position_engaged() -> Vector2:
+	return player_position_engaged
+
 func get_player_initial_position() -> Vector2:
 	return player_initial_position
 
