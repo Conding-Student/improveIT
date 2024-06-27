@@ -661,7 +661,7 @@ __meta__ = {
 [node name="NPC" type="YSort" parent="YSort"]
 
 [node name="NPC" parent="YSort/NPC" instance=ExtResource( 18 )]
-position = Vector2( -37, -91 )
+position = Vector2( -69, -61 )
 
 [node name="Area2D" type="Area2D" parent="YSort/NPC/NPC"]
 collision_layer = 64

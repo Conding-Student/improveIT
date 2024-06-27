@@ -23,23 +23,30 @@ func _ready():
 func _process(_delta):
 	Global.set_player_current_position(player.global_position)
 
+func after_dialog(timelinename):
+	player_controller.show()
+	Global.start_level_trigger = true
+
 func set_player_position():
 	if Global.get_player_initial_position() == Vector2(0,0):
 		Global.set_player_current_position(staring_player_position)
 		#print("one")
+		player_controller.hide()
+		topui.hide()
+		var new_dialog = Dialogic.start('tutorial')
+		add_child(new_dialog)
+		new_dialog.connect("timeline_end", self, "after_dialog")
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.player_position_retain == true:
 		player.global_position = Global.get_player_position_engaged()
 		Global.player_position_retain = false	
-		#print("two")	
-	elif Global.get_player_initial_position() != Vector2(0,0) and Global.get_enemy_defeated("enemy1") == true:
-		player.global_position = Global.get_player_current_position()
-		#print("three")
+		print("two")	
+	
 	elif Global.get_player_after_door_position() != Vector2(0,0):
 		player.global_position = Global.get_player_after_door_position()
-		#print("four")
+		print("three")
 	else:
 		player.global_position = Global.get_player_current_position()
-		#print("five")	
+		print("five")	
 
 func resume_the_game() -> void:
 	get_tree().paused = false

@@ -1,6 +1,6 @@
 extends Node
 
-
+onready var saving_file = $saving_file
 func _ready():
 	#pass
 	var new_dialog = Dialogic.start('trial')
@@ -8,6 +8,11 @@ func _ready():
 	new_dialog.connect("timeline_end", self, "after_dialog")
 
 func after_dialog(timelinename):
-	SceneTransition.change_scene("res://World/room/house_inside.tscn")
+	saving_file.load_game()
+	
+	if Global.get_map() != "":
+		SceneTransition.change_scene(Global.get_map())
+	else:
+		SceneTransition.change_scene("res://World/room/house_inside.tscn")
 
 

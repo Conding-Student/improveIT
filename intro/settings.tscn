@@ -44,12 +44,12 @@ toggle_mode = true
 texture_normal = ExtResource( 4 )
 
 [node name="music" type="Label" parent="Panel"]
-margin_left = 43.0
-margin_top = 77.0
-margin_right = 93.0
-margin_bottom = 97.0
+margin_left = 73.0
+margin_top = 78.0
+margin_right = 199.0
+margin_bottom = 98.0
 custom_fonts/font = SubResource( 1 )
-text = "music:"
+text = "Master Volume"
 
 [node name="Label" type="Label" parent="Panel"]
 margin_left = 121.0
@@ -60,27 +60,10 @@ custom_fonts/font = SubResource( 1 )
 text = "SETTINGS"
 
 [node name="mute" type="TextureButton" parent="Panel"]
-margin_left = 106.0
-margin_top = 76.0
-margin_right = 131.0
-margin_bottom = 99.0
-toggle_mode = true
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 1 )
-
-[node name="Sound" type="Label" parent="Panel"]
-margin_left = 172.0
-margin_top = 77.0
-margin_right = 236.0
-margin_bottom = 97.0
-custom_fonts/font = SubResource( 1 )
-text = "Sounds:"
-
-[node name="mute2" type="TextureButton" parent="Panel"]
-margin_left = 246.0
-margin_top = 75.0
-margin_right = 271.0
-margin_bottom = 98.0
+margin_left = 202.0
+margin_top = 78.0
+margin_right = 227.0
+margin_bottom = 101.0
 toggle_mode = true
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 1 )

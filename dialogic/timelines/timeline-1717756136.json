@@ -111,6 +111,10 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Come with me we need something to fetch."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.5
 		}
 	],
 	"metadata": {

@@ -33,6 +33,12 @@ func _ready():
 	resume.connect("pressed", self, "resume_the_game")
 	Global.set_map(current_map)
 
+
+func after_tutorial_headings(timelinename):
+	topui.show()
+	player_controller.show()
+	#print("two1")
+
 func set_overall_initial_position():
 	Global.set_player_initial_position(Global.get_player_current_position())
 	Global.set_enemy_initial_position("enemy1",Global.get_enemy_current_position("enemy1"))
@@ -43,16 +49,30 @@ func set_player_position():
 	if Global.get_player_initial_position() == Vector2(0,0):
 		Global.set_player_current_position(staring_player_position)
 		#print("one")
+	
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.player_position_retain == true:
 		
-		if Global.door_activated == true:
+		if Global.door_activated == true and Global.start_level_trigger == true:
+			player.global_position = Vector2(-120,-56)
+			Global.player_position_retain = false
+			Global.door_activated = false
+			Global.start_level_trigger = false
+			topui.hide()
+			player_controller.hide()
+			var new_dialog = Dialogic.start('heading_tutorial')
+			add_child(new_dialog)
+			new_dialog.connect("timeline_end", self, "after_tutorial_headings")			
+		
+		elif Global.door_activated == true:
 			player.global_position = Vector2(-120,-56)
 			Global.player_position_retain = false
 			Global.door_activated = false
 			#print("two")
+			
 		else:
 			player.global_position = Global.get_player_position_engaged()
 			Global.player_position_retain = false
+			#print("two3")
 	elif Global.get_player_initial_position() != Vector2(0,0) and Global.get_enemy_defeated("enemy1") == true:
 		#print("three")
 		player.global_position = Global.get_player_current_position()		
