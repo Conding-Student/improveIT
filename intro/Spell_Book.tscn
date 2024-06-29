@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://intro/picture/arrow.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://intro/picture/spellbook/in-game/list-1.png" type="Texture" id=4]
 [ext_resource path="res://intro/script/spellbook.gd" type="Script" id=5]
 [ext_resource path="res://intro/picture/close.png" type="Texture" id=6]
+[ext_resource path="res://intro/methods.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 7
@@ -109,12 +110,12 @@ margin_top = 29.0
 margin_right = 299.0
 margin_bottom = 169.0
 
-[node name="picture-IG" type="TextureRect" parent="Panel/in-game"]
+[node name="picture-IG" type="TextureButton" parent="Panel/in-game"]
 margin_left = 60.0
 margin_top = 11.0
 margin_right = 211.0
 margin_bottom = 90.0
-texture = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
 
 [node name="name" type="Label" parent="Panel/in-game"]
 margin_left = 124.0
@@ -144,4 +145,7 @@ text = "       Ancient C# magic that let mages encrypt secrets by storing
    data types dynamically, with auto-adjusting capacity for added 
                                                                         values."
 
+[node name="methods" parent="." instance=ExtResource( 7 )]
+
 [connection signal="pressed" from="Panel/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Panel/in-game/picture-IG" to="." method="_on_pictureIG_pressed"]
