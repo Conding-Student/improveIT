@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/add.png-1ee30bd9ce5a560c2114203769aff3d8.stex"
+path="res://.import/insertrange.png-1a4f2b78a9c56c1b219a513a7e6a5425.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://intro/picture/spellbook/methods/list/add.png"
-dest_files=[ "res://.import/add.png-1ee30bd9ce5a560c2114203769aff3d8.stex" ]
+source_file="res://intro/picture/spellbook/methods/list/insertrange/insertrange.png"
+dest_files=[ "res://.import/insertrange.png-1a4f2b78a9c56c1b219a513a7e6a5425.stex" ]
 
 [params]
 
